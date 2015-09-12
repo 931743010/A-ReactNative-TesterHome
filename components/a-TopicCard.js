@@ -19,30 +19,30 @@ var TopicCard = React.createClass({
   getInitialState() {
     return {
       dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
+        rowHasChanged: (row1, row2) => row1 !== row2
       }),
       loaded: false,
       currentOffset: 0
-    }
+    };
   },
 
   componentDidMount() {
     this.fetchTopicsData();
   },
 
-  _avatarFilter(avatar: string): string {
+  _avatarFilter(avatar) {
     return /testerhome/i.test(avatar) ?
            avatar :
            'https://testerhome.com' + avatar;
   },
 
-  _stringFilter(title: string, len: number): string {
+  _stringFilter(title, len) {
     return title.length >= len ?
            title.slice(0, len) + '...' :
-           title
+           title;
   },
 
-  _countRate(count: number): string {
+  _countRate(count) {
     let num = Number(count);
     if(num > 100) {
       return '热评';
@@ -65,9 +65,9 @@ var TopicCard = React.createClass({
   _reload() {
     this.fetchTopicsData(
       apilist.fetchResourceWithPage(
-        apilist[this.props.currentReqName],
+        apilist[this.props.currentReqName]
       )
-    )
+    );
   },
 
   fetchTopicsData(api=this.props.resourceApi, more=0) {
@@ -79,7 +79,7 @@ var TopicCard = React.createClass({
                   loaded: true,
                   currentOffset: this.state.currentOffset + more
                 });
-              })
+              });
   },
 
   render() {
@@ -110,10 +110,10 @@ var TopicCard = React.createClass({
         minPulldownDistance={80}
         minBetweenTime={2000}
       />
-    )
+    );
   },
 
-  renderTopicItem(topic: Object) {
+  renderTopicItem(topic) {
     return (
       <View style={styles.topicCard}>
         <View style={styles.avatar}>
@@ -152,8 +152,8 @@ var indicatorStylesheet = StyleSheet.create({
   content: {
     marginTop: 10,
     marginBottom: 10,
-    height: 60,
-  },
+    height: 60
+  }
 });
 
 var styles = StyleSheet.create({
@@ -185,7 +185,7 @@ var styles = StyleSheet.create({
     borderColor: '#f0f0f0',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderRadius: 0,
+    borderRadius: 0
   },
   avatarImg: {
     width: 48,
@@ -200,7 +200,7 @@ var styles = StyleSheet.create({
     marginRight: 5
   },
   avatar: {
-    flex: 2,
+    flex: 2
   },
   titleMeta: {
     flex: 7,
@@ -249,4 +249,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = TopicCard
+module.exports = TopicCard;

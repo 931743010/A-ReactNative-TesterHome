@@ -4,7 +4,7 @@ var {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
+  TouchableOpacity
 } = React;
 
 var deviceWidth = require('Dimensions').get('window').width;
@@ -21,7 +21,7 @@ var styles = StyleSheet.create({
     borderTopWidth: 0,
     borderBottomWidth: 1,
     borderColor: '#f0f0f0'
-  },
+  }
 });
 
 var TopicTabBar = React.createClass({
@@ -33,7 +33,6 @@ var TopicTabBar = React.createClass({
 
   renderTabOption(name, page) {
     var isTabActive = this.props.activeTab === page;
-    var numberOfTabs = this.props.tabs.length;
     var tabItemStyle = {
       flex: 1,
       alignItems: 'center',
@@ -63,7 +62,7 @@ var TopicTabBar = React.createClass({
       width: deviceWidth / numberOfTabs,
       height: 4,
       backgroundColor: '#c0392b',
-      bottom: 1,
+      bottom: 1
     };
 
     return (
@@ -74,7 +73,7 @@ var TopicTabBar = React.createClass({
         <View style={tabUnderlineStyle} ref={TAB_UNDERLINE_REF} />
       </View>
     );
-  },
+  }
 });
 
 module.exports = TopicTabBar;
