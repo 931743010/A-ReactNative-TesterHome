@@ -35,6 +35,7 @@ var TopicPage = React.createClass({
       <ScrollableTabView
         renderTabBar={() => <TopicTabBar />}
         sceneContainerStyle={{ paddingBottom: 113 }}
+        edgeHitWidth={9999}
        >
 
        {this._renderSlidesContent(this.props.needSlideContents)}
