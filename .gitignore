@@ -26,3 +26,15 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+
+# vscode
+.vscode/
+
+# eslint
+.eslintrc
+
+# flow
+.flowconfig
+
+# npmignore
+.npmignore
