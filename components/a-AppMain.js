@@ -47,7 +47,7 @@ var AppNavBar = React.createClass({
 				translucent={false}
 			>
 			<TabBarIOS.Item
-				title="社区"
+				title="帖子"
 				icon={{uri: require('image!iconfont-zuijinfabu')}}
 				selected={this.state.selectedTab === 'indexTab'}
 				onPress={() => {
@@ -63,7 +63,7 @@ var AppNavBar = React.createClass({
 				)}
 			</TabBarIOS.Item>
 			<TabBarIOS.Item
-				title="话题"
+				title="标签"
 				icon={{uri: require('image!iconfont-jinghua')}}
 				selected={this.state.selectedTab === 'niceTab'}
 				onPress={() => {
@@ -77,7 +77,7 @@ var AppNavBar = React.createClass({
 				)}
 			</TabBarIOS.Item>
 			<TabBarIOS.Item
-				title="招聘"
+				title="动态"
 				icon={{uri: require('image!iconfont-hot')}}
 				selected={this.state.selectedTab === 'hotTab'}
 				onPress={() => {
@@ -86,10 +86,10 @@ var AppNavBar = React.createClass({
                   });
                 }}>
 				{this._renderPage([
-                      {api: apilist.RECENT_TOP_API, apiName: 'RECENT_TOP_API', tabLable: '最新'},
-                      {api: apilist.POP_TOPIC_API, apiName: 'POP_TOPIC_API', tabLable: '最热'},
-                      {api: apilist.NO_REPLY_API, apiName: 'NO_REPLY_API', tabLable: '沙发'},
-                      {api: apilist.EXEC_TOPIC_API, apiName: 'EXEC_TOPIC_API', tabLable: '精华'}]
+                      {api: apilist.JOB_API, apiName: 'JOB_API', tabLable: '职业'},
+                      {api: apilist.QA_API, apiName: 'QA_API', tabLable: '问答'},
+                      {api: apilist.JD_API, apiName: 'JD_API', tabLable: '招聘'},
+                      {api: apilist.AC_API, apiName: 'AC_API', tabLable: '活动'}]
 				)}
 			</TabBarIOS.Item>
 			<TabBarIOS.Item

@@ -30,10 +30,32 @@ var TopicCard = React.createClass({
     this.fetchTopicsData();
   },
 
-  _avatarFilter(avatar) {
-    return /testerhome/i.test(avatar) ?
+  _avatarFilter(topic) {
+    let avatar = topic.user && 
+                 topic.user.avatar_url && 
+                 topic.user.avatar_url;
+                 
+    if(avatar) {
+      return /testerhome/i.test(avatar) ?
            avatar :
            'https://testerhome.com' + avatar;
+    } else {
+      // TODO
+      // 替换成匿名用户头像地址
+      return 'https://testerhome.com/user/big_avatar/118.jpg';
+    }
+  },
+  
+  _checkUser(topic) {
+    let login = topic.user && 
+                 topic.user.login && 
+                 topic.user.login;
+                 
+    if(login) {
+      return login;
+    } else {
+      return '匿名用户';
+    }
   },
 
   _stringFilter(title, len) {
@@ -52,14 +74,13 @@ var TopicCard = React.createClass({
   },
 
   _loadMore() {
-    // console.log('reached to bottom');
-    // this.fetchTopicsData(
-    //   apilist.fetchResourceWithPage(
-    //     apilist[this.props.currentReqName],
-    //     this.state.currentOffset + 20
-    //   ),
-    //   20
-    // )
+    this.fetchTopicsData(
+      apilist.fetchResourceWithPage(
+        apilist[this.props.currentReqName],
+        this.state.currentOffset + 20
+      ),
+      20
+    );
   },
 
   _reload() {
@@ -119,7 +140,7 @@ var TopicCard = React.createClass({
         <View style={styles.avatar}>
           <Image
             style={styles.avatarImg}
-            source={{uri:this._avatarFilter(topic.user.avatar_url)}}
+            source={{uri:this._avatarFilter(topic)}}
             resizeMode='cover'
           />
         </View>
@@ -127,7 +148,7 @@ var TopicCard = React.createClass({
         <View style={styles.titleMeta}>
           <Text style={styles.topicTitle}>{topic.title}</Text>
             <View style={styles.metaarea}>
-              <Text style={styles.metainfo}>{topic.user.login}</Text>
+              <Text style={styles.metainfo}>{this._checkUser(topic)}</Text>
               <Text style={styles.metainfo}>刚刚更新</Text>
             </View>
 

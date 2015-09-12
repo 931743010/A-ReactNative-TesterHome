@@ -14,7 +14,7 @@ var TopicPage = React.createClass({
   _renderSlidesContent(slides) {
       return slides.map((obj) => {
         return (
-         <View tabLabel={obj.tabLable} style={{ flex: 1 }}>
+         <View key={obj.apiName} tabLabel={obj.tabLable} style={{ flex: 1 }}>
           <TopicCard
             resourceApi={obj.api}
             currentReqName={obj.apiName}

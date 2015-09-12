@@ -20,16 +20,40 @@ var fetchResourceWithPage = (request, offset=0, pageSize=20) => {
   }
 };
 
+/**
+ * 节点
+ */
+
 // 默认主题列表
-var TOPIC_API = apiResourceWrapper('topics.json');
+const TOPIC_API = apiResourceWrapper('topics.json');
+
+/**
+ * 帖子
+ */
+
 // 最近主题
-var RECENT_TOP_API = requestParamsWrapper(TOPIC_API, 'type=recent');
+const RECENT_TOP_API = requestParamsWrapper(TOPIC_API, 'type=recent');
 // 热门主题
-var POP_TOPIC_API = requestParamsWrapper(TOPIC_API, 'type=popular');
+const POP_TOPIC_API = requestParamsWrapper(TOPIC_API, 'type=popular');
 // 精华主题
-var EXEC_TOPIC_API = requestParamsWrapper(TOPIC_API, 'type=excellent');
+const EXEC_TOPIC_API = requestParamsWrapper(TOPIC_API, 'type=excellent');
 // 还没有任何回复的
-var NO_REPLY_API = requestParamsWrapper(TOPIC_API, 'type=no_reply');
+const NO_REPLY_API = requestParamsWrapper(TOPIC_API, 'type=no_reply');
+
+
+/**
+ * 动态
+ */
+
+// 职业
+const JOB_API = requestParamsWrapper(TOPIC_API, 'node_id=12');
+// 问答
+const QA_API = requestParamsWrapper(TOPIC_API, 'node_id=20');
+// 招聘
+const JD_API = requestParamsWrapper(TOPIC_API, 'node_id=19');
+// 活动
+const AC_API = requestParamsWrapper(TOPIC_API, 'node_id=24');
+
 
 module.exports = {
   TOPIC_API,
@@ -37,5 +61,11 @@ module.exports = {
   EXEC_TOPIC_API,
   NO_REPLY_API,
   RECENT_TOP_API,
+  
+  JOB_API,
+  QA_API,
+  JD_API,
+  AC_API,
+  
   fetchResourceWithPage
 };
