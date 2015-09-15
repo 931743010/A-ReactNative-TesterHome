@@ -11,7 +11,8 @@ var {
   View,
   ListView,
   Image,
-  ActivityIndicatorIOS
+  ActivityIndicatorIOS,
+  TouchableOpacity
 } = React;
 
 
@@ -90,6 +91,11 @@ var TopicCard = React.createClass({
       )
     );
   },
+  
+  _onPressTopicItem() {
+    // 详情页
+    console.log(this.refs.INDEX_NAV);
+  },
 
   fetchTopicsData(api=this.props.resourceApi, more=0) {
     superagent.get(api)
@@ -136,6 +142,7 @@ var TopicCard = React.createClass({
 
   renderTopicItem(topic) {
     return (
+      <TouchableOpacity onPress={this._onPressTopicItem} activeOpacity={0.8}>
       <View style={styles.topicCard}>
         <View style={styles.avatar}>
           <Image
@@ -160,6 +167,7 @@ var TopicCard = React.createClass({
             </View>
         </View>
       </View>
+      </TouchableOpacity>
     );
   }
 });
