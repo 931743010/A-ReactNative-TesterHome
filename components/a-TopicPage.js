@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var TopicCard = require('./a-TopicCard');
+var TopicCardList = require('./a-TopicCardList');
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var TopicTabBar = require('./a-TopicTabBar');
 
@@ -15,7 +15,7 @@ var TopicPage = React.createClass({
       return slides.map((obj) => {
         return (
          <View key={obj.apiName} tabLabel={obj.tabLable} style={{ flex: 1 }}>
-          <TopicCard
+          <TopicCardList
             resourceApi={obj.api}
             currentReqName={obj.apiName}
           />

@@ -48,7 +48,7 @@ var AppNavBar = React.createClass({
 			>
 			<TabBarIOS.Item
 				title="帖子"
-				icon={{uri: require('image!iconfont-zuijinfabu')}}
+				icon={require('image!iconfont-zuijinfabu')}
 				selected={this.state.selectedTab === 'indexTab'}
 				onPress={() => {
                     this.setState({
@@ -64,7 +64,7 @@ var AppNavBar = React.createClass({
 			</TabBarIOS.Item>
 			<TabBarIOS.Item
 				title="标签"
-				icon={{uri: require('image!iconfont-jinghua')}}
+				icon={require('image!iconfont-jinghua')}
 				selected={this.state.selectedTab === 'niceTab'}
 				onPress={() => {
                   this.setState({
@@ -78,7 +78,7 @@ var AppNavBar = React.createClass({
 			</TabBarIOS.Item>
 			<TabBarIOS.Item
 				title="动态"
-				icon={{uri: require('image!iconfont-hot')}}
+				icon={require('image!iconfont-hot')}
 				selected={this.state.selectedTab === 'hotTab'}
 				onPress={() => {
                   this.setState({
@@ -94,7 +94,7 @@ var AppNavBar = React.createClass({
 			</TabBarIOS.Item>
 			<TabBarIOS.Item
 				title="我的"
-				icon={{uri: require('image!iconfont-shafa')}}
+				icon={require('image!iconfont-shafa')}
 				selected={this.state.selectedTab === 'needComment'}
 				onPress={() => {
                     this.setState({
