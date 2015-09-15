@@ -26,3 +26,10 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+
+# React-Native
+.watchmanconfig
+.npmignore
+.flowconfig
+.eslintrc
+.vscode/
